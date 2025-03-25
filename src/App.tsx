@@ -1,8 +1,12 @@
 // App.js
 import { AppRoutes } from "./router";
 import Sidebar from "./components/SideBar.tsx";
+import { useSelector } from "react-redux";
+import { RootState } from "./store";
 
 const App = () => {
+  const user = useSelector((state: RootState) => state.auth);
+
   return (
     <>
       <div className={"container mx-auto"}>
@@ -15,7 +19,7 @@ const App = () => {
               <span className="material-icons">notifications</span>
             </span>
             <span className="text-white opacity-80 hover:opacity-100 cursor-pointer">
-              <span className="material-icons">account_circle</span>
+              <span className="material-icons">{user.name}</span>
             </span>
           </div>
         </header>
