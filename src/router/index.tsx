@@ -5,6 +5,8 @@ import BestSeller from "../components/BestSeller";
 import Laptop from "../components/Laptop";
 import Desktop from "../components/Desktop";
 import NoMatch from "../components/NoMatch";
+import { useDispatch } from "react-redux";
+import { fetchUser } from "../store/userSlice";
 
 const routes = [
   { path: "/", element: <Dashboard /> },
@@ -12,7 +14,7 @@ const routes = [
     path: "/products",
     element: <Products />,
     children: [
-      { index: true, element: <BestSeller /> },
+      { path: "best", element: <BestSeller /> },
       { path: "laptop", element: <Laptop /> },
       { path: "desktop", element: <Desktop /> },
     ],
@@ -21,5 +23,8 @@ const routes = [
 ];
 
 export const AppRoutes = () => {
+  const dispatch = useDispatch();
+  dispatch(fetchUser());
+
   return useRoutes(routes);
 };
