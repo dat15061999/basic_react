@@ -9,6 +9,7 @@ Currently, two official plugins are available:
 - Tailwindcss
 - Redux redux/toolkit
 - Router
+- Axios
 
 
 ## Expanding the ESLint configuration
